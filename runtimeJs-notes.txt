@@ -1,0 +1,40 @@
+results of runTime.js
+
+Results for the tinyArray
+const tinyArray = getSizedArray(10);
+insert 47.726 μs
+append 102.848 μs
+
+Results for the smallArray
+const smallArray = getSizedArray(100);
+insert 12.513 μs
+append 12.704 μs
+
+Results for the mediumArray
+const mediumArray = getSizedArray(1000);
+insert 110.08 μs
+append 44.197 μs
+
+Results for the largeArray
+const largeArray = getSizedArray(10000);
+insert 7.674484 ms
+append 583.47 μs
+
+Results for the extraLargeArray
+const extraLargeArray = getSizedArray(100000);
+insert 898.102434 ms
+append 3.746338 ms
+
+	    insert	append
+tiny	46.675	103.572
+small	13.247	14.322
+medium	110.877	45.33
+large	7567.635 520.502
+XL	 922429.243	 3467.358
+
+
+
+ The insert function speeds up to the small array but then dramatically slows down as it increases the size of the array
+ The append function starts out slower than insert, but also speeds up to the small array, and then much more gradually scales up and seems to be a much better solution for larger arrays. 
+ I noticed that initially, the unshift method in the insert function is faster, but push in the append function is far faster than unshift as you scale the size of the array up. 
+ I think the append function scales better because it utilizes the push method, which only adds to the end of an array, whereas the unshift method adds to the beginning and is forced to reassign the index of every other element in the array. 
